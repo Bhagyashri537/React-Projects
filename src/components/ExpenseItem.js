@@ -1,11 +1,15 @@
+import './ExpenseItem.css';
+
+
 function ExpenseItem(){
+    const locationOfExpenditure = 'Nagpur';
     return (
-        <div>
-            <h1>Expense Item</h1>
-            <div>
-                <h2>Food Rs 10</h2>
-                <h2>Petrol Rs 100</h2>
-                <h2>Movies Rs 200</h2>
+        <div className='expense-item'>
+            <div>January 21 2023</div>
+            <div className='expense-item__description'>
+                <h2>Car Insurance</h2>
+                <h2>{locationOfExpenditure}</h2>
+                <div className='expense-item__price'>$200</div>
             </div>
         </div>
     )
