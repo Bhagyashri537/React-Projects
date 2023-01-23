@@ -1,21 +1,27 @@
+
+import React from 'react';
+
 import './ExpenseItem.css';
 
 
-function ExpenseItem(){
-    const expenseDate = new Date(2023,0,22)
-    const expenseTitle = 'Car Insurance';
-    const locationOfExpenditure = 'Nagpur';
-    const expenseAmount = 200
+
+function ExpenseItem(props){
+   
     return (
         <div className='expense-item'>
-            <div>{expenseDate.toISOString()}</div>
+          
+            <div>{props.date.toISOString()}</div>
             <div className='expense-item__description'>
-                <h2>{ expenseTitle}</h2>
-                <h2>{locationOfExpenditure}</h2>
-                <div className='expense-item__price'>${expenseAmount}</div>
+                <h2>{props.title}</h2>
+                <h2>{props.location}</h2>
+                <div className='expense-item__price'>${props.amount}</div>
             </div>
         </div>
     )
 }
 
-export default ExpenseItem;
+ 
+ export default ExpenseItem;
+ 
+  
+
