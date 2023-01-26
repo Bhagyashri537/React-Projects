@@ -10,7 +10,7 @@ import './ExpenseItem.css';
 function ExpenseItem(props){
 
    const [title,setTitle]  = useState(props.title);
-   const [amount,setAmount]  = useState(props.amount);
+   const [amount,setAmount]  = useState(props.amount)
 
    
 
