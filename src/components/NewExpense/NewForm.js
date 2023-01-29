@@ -1,4 +1,5 @@
 import './NewForm.css';
+import { useState } from 'react';
 
 const NewForm = () => {
 
@@ -7,7 +8,7 @@ const NewForm = () => {
     const [enterDate, setEnteredDate] = useState('');
 
    const  titleChangeHandler = (event) => {
-    setEnteredTitle(event.target.value)
+    setEnteredTitle(event.target.value);
     }
 
    const amountHandler = (event) => {
@@ -17,9 +18,20 @@ const NewForm = () => {
    const dateHandler = (event) => {
     setEnteredDate(event.target.value);
    }
+
+   const submitHandler = (event) => {
+     event.preventDefault();
+
+     const expenseData = {
+         title:enterTitle,
+         amount:enterAmount,
+         date: new Date(enterDate)
+     }
+     console.log(expenseData)
+   }
  
    return (
-   <form>
+   <form onSubmit={submitHandler}>
     <div className='new-expense__controls'>
         <div className='new-expense__control'>
          <label>Title</label>
