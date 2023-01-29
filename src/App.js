@@ -1,9 +1,10 @@
+import { useState } from "react";
 import ExpenseItem from "./components/ExpenseItem";
 import NewExpense from "./components/NewExpense/NewExpense.js";
 
-function App () {
 
-    const expense = [
+
+    const old_expense = [
         {
             id:"e1",    
             title:"Car Insurance",
@@ -35,11 +36,21 @@ function App () {
         }
 
     ]
+    const App =() => {
+        const [expenses, setExpenses] = useState(old_expense)
+    
+
+     const addExpenseHandler =( expense) => {
+        setExpenses ((prevExpenses) => {
+            return [expense,...prevExpenses];
+        })
+     }
     return (
         <div>
-            <NewExpense/>
-        {expense.map(item => {
+            <NewExpense onAddExpense={addExpenseHandler}/>
+        {expenses.map((item) => {
          return<ExpenseItem 
+           key={item.id}
            title={item.title} 
            amount={item.amount} 
            date={item.date} 
