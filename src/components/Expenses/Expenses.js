@@ -18,16 +18,7 @@ const Expenses = (props) => {
 
   let expenseContent = <p>No Expense Found</p>;
 
-  if(filteredExpenses.length ===1)
-  {
-    expenseContent = filteredExpenses
-      
-   && <p>Only single Expense here. Please add more...</p>
-    
-    
-  }
-
-  if(filteredExpenses.length >1)
+  if(filteredExpenses.length >0)
   {
     expenseContent = filteredExpenses.map((expense) => (
       <ExpenseItem
