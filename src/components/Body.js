@@ -30,6 +30,7 @@ const Body = (props) => {
     }
     
    return(
+    <>
     <Card className="card">
    <form  className="form"onSubmit={addUserHandler}>
     <label htmlFor="username">Username</label>
@@ -39,6 +40,7 @@ const Body = (props) => {
     <button type="submit">Add Users</button>
    </form>
    </Card>
+   </>
    )
 }
 export default Body;
