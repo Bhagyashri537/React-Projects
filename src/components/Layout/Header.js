@@ -4,6 +4,7 @@ import { Fragment } from 'react';
 import HeaderCartButton from './HeaderCartButton';
 import MealsSummary from '../Meals/MealsSummary';
 
+
 const Header = () => {
     return (
         <Fragment>
@@ -15,6 +16,7 @@ const Header = () => {
         <div className={classes['main-image']}>
             <img alt='/' src={IMG_URL}/>
             <MealsSummary/>
+            
         </div>
          
         </Fragment>
