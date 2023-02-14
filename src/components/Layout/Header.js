@@ -5,16 +5,16 @@ import HeaderCartButton from './HeaderCartButton';
 
 
 
-const Header = () => {
+const Header = (props) => {
     return (
         <Fragment>
         <header className={classes.header}>
             <h1>ReactMeals</h1>
-            <HeaderCartButton/>
+            <HeaderCartButton onClick={props.onShowCart}/>
            
         </header>
         <div className={classes['main-image']}>
-            <img alt='/' src={IMG_URL}/>
+            <img alt='A table full of delicious food' src={IMG_URL}/>
            
             
         </div>
