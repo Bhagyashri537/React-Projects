@@ -5,7 +5,7 @@ import CartContext from "../../../store/cart-context";
 
 const MealItem = (props) => {
   const cartctx = useContext(CartContext)
-  const price = `${parseInt(props.price).toFixed(2)}`
+  const price = `$${parseInt(props.price).toFixed(2)}`
   
   const addToCartHandler = amount => {
     cartctx.addItem({
@@ -22,7 +22,7 @@ const MealItem = (props) => {
       <div>
         <h3>{props.name}</h3>
         <div className={classes.description}>{props.info}</div>
-        <div className={classes.price}>${price}</div>
+        <div className={classes.price}>{price}</div>
       </div>
       <div>
         {/* {console.log(props)} */}
