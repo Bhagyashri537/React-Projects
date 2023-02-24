@@ -23,7 +23,7 @@ const productsList = [
   },
 
   {
-    id:" p4",
+    id:"p4",
     title: "Blue Color",
     price: 100,
     imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%204.png",
@@ -34,7 +34,7 @@ const Product = (props) => {
   console.log(Product)
   return (
     <>
-      <ul>
+      <ul className="flex justify-between">
        {productsList.map((products) => {
         return (
             <ProductCard {...products} id={products.id}/>
