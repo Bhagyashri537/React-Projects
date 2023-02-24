@@ -3,6 +3,8 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Body from "./src/Product/Body"
 import Header from "./src/Header/Header";
 import Cart from "./src/Header/Cart";
+import About from "./src/Header/About";
+import CartProvider from "./src/store/CartProvider";
 
 const AppLayout = () => {
     return (
@@ -25,6 +27,10 @@ const appRouter = createBrowserRouter([
             {
                 path: "/cart",
                 element: <Cart/>
+            },
+            {
+                path: "/about",
+                element: <About/>
             }
         ]
 
@@ -34,4 +40,4 @@ const appRouter = createBrowserRouter([
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"))
-root.render(<RouterProvider router={appRouter}/>)
+root.render(<CartProvider><RouterProvider router={appRouter}/></CartProvider>)
