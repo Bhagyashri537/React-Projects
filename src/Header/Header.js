@@ -3,22 +3,24 @@ import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <>
-      
-        <ul className="flex justify-around bg-black text-white p-4">
+      <ul className="flex justify-around bg-black text-white p-4">
+        <Link to="/home">
           <li>HOME</li>
-          <li>STORE</li>
-          <Link to="/about">
+        </Link>
+        <Link to="/">
+        <li>STORE</li>
+        </Link>
+        <Link to="/about">
           <li>ABOUT</li>
-          </Link>
-          <Link to="/cart">
+        </Link>
+        <Link to="/cart">
           <li>CART</li>
-          </Link>
-        </ul>
+        </Link>
+      </ul>
 
-    <div className="bg-slate-500 text-center p-4 shadow-gray-900 shadow-lg">
+      <div className="bg-slate-500 text-center p-4 shadow-gray-900 shadow-lg">
         <h1 className="text-7xl text-slate-50">The Generics</h1>
-    </div>
-     
+      </div>
     </>
   );
 };

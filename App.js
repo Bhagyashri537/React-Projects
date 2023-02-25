@@ -1,9 +1,10 @@
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
-import Body from "./src/Product/Body"
+import Store from "./src/Product/Store"
 import Header from "./src/Header/Header";
 import Cart from "./src/Header/Cart";
 import About from "./src/Header/About";
+import Home from "./src/Header/Home"
 import CartProvider from "./src/store/CartProvider";
 
 const AppLayout = () => {
@@ -22,7 +23,7 @@ const appRouter = createBrowserRouter([
         children: [
             {
                 path: "/",
-                element: <Body/>
+                element: <Store/>
             },
             {
                 path: "/cart",
@@ -31,7 +32,11 @@ const appRouter = createBrowserRouter([
             {
                 path: "/about",
                 element: <About/>
-            }
+            },
+            {
+                path: "/home",
+                element: <Home/>
+            },
         ]
 
     }
