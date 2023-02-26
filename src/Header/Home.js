@@ -1,5 +1,13 @@
+import { Link } from "react-router-dom";
+
 const Home = () => {
   return (
+    <>
+    <div>
+      <Link to="/movies">
+       <button>Movies</button>
+      </Link>
+    </div>
     <div className="flex items-center justify-center h-screen">
         
       <table className="shadow-lg bg-white border-separate content-center">
@@ -35,6 +43,8 @@ const Home = () => {
         </tr>
       </table>
     </div>
+    
+    </>
   );
 };
 export default Home;
