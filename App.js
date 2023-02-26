@@ -5,12 +5,36 @@ import Header from "./src/Header/Header";
 import Cart from "./src/Header/Cart";
 import About from "./src/Header/About";
 import Home from "./src/Header/Home"
-import CartProvider from "./src/store/CartProvider";
+import {  useState } from "react";
+
 
 const AppLayout = () => {
+
+   
+
+    const [movie, setMovie] = useState([])
+    async function fetchMovieHandler () {
+        const data = await fetch('https://swapi.dve/api/films')
+        const json = await data.json()
+        
+  
+    const maindata = data.results.map(item => {
+        return {
+            id:item.episode_id,
+            title:item.title,
+            openingText : item.opening_crawl,
+            releaseDate:item.releas_date
+        }
+    })
+    setMovie(maindata)
+}
+    
     return (
     <>
      <Header/>
+     <section>
+        <button onClick={fetchMovieHandler}>btn</button>
+     </section>
      <Outlet/>
      </>
     )
@@ -25,10 +49,7 @@ const appRouter = createBrowserRouter([
                 path: "/",
                 element: <Store/>
             },
-            {
-                path: "/cart",
-                element: <Cart/>
-            },
+            
             {
                 path: "/about",
                 element: <About/>
@@ -36,6 +57,10 @@ const appRouter = createBrowserRouter([
             {
                 path: "/home",
                 element: <Home/>
+            },
+            {
+                path: "/cart",
+                element: <Cart/>
             },
         ]
 
@@ -45,4 +70,4 @@ const appRouter = createBrowserRouter([
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"))
-root.render(<CartProvider><RouterProvider router={appRouter}/></CartProvider>)
+root.render(<RouterProvider router={appRouter}/>)

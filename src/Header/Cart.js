@@ -1,4 +1,6 @@
+
 import CartItem from "./cartItem";
+
 const cartElements = [
     {
     title: 'Colors',
@@ -15,12 +17,15 @@ const cartElements = [
     },
 ]
 const Cart = () => {
+
+    
     return (
         <div>
             <ul>
+                
                 {cartElements.map((item) => {
                     return (
-                        <CartItem {...item}/>
+                        <CartItem {...item} key={item.id}/>
                     )
                 })}
             </ul>
