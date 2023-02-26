@@ -1,6 +1,7 @@
 import React from "react";
 import MovieList from "./MovieList";
 import { useState, useEffect } from "react";
+import Shimmer from "./ShimmerMovie";
 
 const Movies = () => {
   const [movie, setMovies] = useState([]);
@@ -26,7 +27,7 @@ const Movies = () => {
 
   
   
-  return (
+  return  movie.length===0 ? (<Shimmer/>) : (
     <div>
       <section>
         <button onClick={fetchMovieHandler}>btn</button>
