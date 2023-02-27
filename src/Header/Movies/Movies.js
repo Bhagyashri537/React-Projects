@@ -1,7 +1,7 @@
 import React from "react";
 import MovieList from "./MovieList";
 import { useState, useEffect, useCallback } from "react";
-import Shimmer from "./ShimmerMovie";
+import NewMovie from "./NewMovie";
 import Movie from "./M";
 
 function Movies() {
@@ -39,7 +39,10 @@ function Movies() {
     fetchMoviesHandler();
   }, [fetchMoviesHandler]);
 
-  
+  function addMovieHandler(movie) {
+    console.log(movie);
+  }
+
 
   let content = <p>Found no movies.</p>;
 
@@ -58,6 +61,9 @@ function Movies() {
   return (
     <React.Fragment>
       <Movie/>
+      <section>
+        <NewMovie onAddMovie={addMovieHandler}/>
+      </section>
       <section>
         <button onClick={fetchMoviesHandler}>Fetch Movies</button>
       </section>
