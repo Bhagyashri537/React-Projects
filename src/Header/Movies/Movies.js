@@ -1,18 +1,21 @@
 import React from "react";
 import MovieList from "./MovieList";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Shimmer from "./ShimmerMovie";
+import Movie from "./M";
 
-const Movies = () => {
-  const [movie, setMovies] = useState([]);
-  const [error, setError] = useState(null);
+function Movies() {
+  const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-  async function fetchMovieHandler() {
+  const fetchMoviesHandler = useCallback(async () => {
+    setIsLoading(true);
+    setError(null);
     try {
-      const response = await fetch("https://swapi.dev/api/films/");
-      if(!response.ok){
-        throw new Error("somthing went wrong...")
+      const response = await fetch('https://swapi.dev/api/films/');
+      if (!response.ok) {
+        throw new Error('Something went wrong!');
       }
 
       const data = await response.json();
@@ -26,17 +29,23 @@ const Movies = () => {
         };
       });
       setMovies(transformedMovies);
-    } catch (err) {
-      setError(err.message)
+    } catch (error) {
+      setError(error.message);
     }
     setIsLoading(false);
-  }
+  }, []);
 
   useEffect(() => {
-    fetchMovieHandler();
-  }, [fetchMovieHandler]);
+    fetchMoviesHandler();
+  }, [fetchMoviesHandler]);
+
+  
 
   let content = <p>Found no movies.</p>;
+
+  if (movies.length > 0) {
+    content = <MovieList movies={movies} />;
+  }
 
   if (error) {
     content = <p>{error}</p>;
@@ -46,17 +55,14 @@ const Movies = () => {
     content = <p>Loading...</p>;
   }
 
-  return movie.length === 0 ? (
-    <Shimmer />
-  ) : (
-    <div>
+  return (
+    <React.Fragment>
+      <Movie/>
       <section>
-        <button onClick={fetchMovieHandler}>Fetch Movies</button>
+        <button onClick={fetchMoviesHandler}>Fetch Movies</button>
       </section>
-      <section>
-        <MovieList movies={movie} />
-      </section>
-    </div>
+      <section>{content}</section>
+    </React.Fragment>
   );
-};
+}
 export default Movies;
