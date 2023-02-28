@@ -2,6 +2,7 @@
 import Movie from "./M";
 const MovieList = (props) => {
     return (
+      <>
       <ul>
         {props.movies.map((movie) => (
           <Movie
@@ -9,9 +10,13 @@ const MovieList = (props) => {
             title={movie.title}
             releaseDate={movie.releaseDate}
             openingText={movie.openingText}
+            movieId = {movie.id}
+            deteleMovie = {props.onDeleteMovie}
           />
         ))}
       </ul>
+     
+      </>
     );
   };
   
