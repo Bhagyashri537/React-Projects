@@ -6,16 +6,15 @@ import Cart from "./src/Header/Cart";
 import About from "./src/Header/About";
 import Home from "./src/Header/Home"
 import Movies from "./src/Header/Movies/Movies";
+import Contact from "./src/Header/Contact";
+import ShimmerCard from "./src/Product/ShimmerCard";
+//const store = import("./src/Product/Store")
 const AppLayout = () => {
-
    
-
-    
     return (
     <>
      <Header/>
-    
-      
+     
      <Outlet/>
      </>
     )
@@ -38,6 +37,11 @@ const appRouter = createBrowserRouter([
             {
                 path: "/home",
                 element: <Home/>,
+               
+            },
+            {
+                path: "/contact",
+                element: <Contact/>,
                
             },
             {

@@ -1,4 +1,5 @@
 import ProductCard from "./ProductCard";
+import ShimmerCard from "./ShimmerCard";
 
 const productsList = [
   {
@@ -32,12 +33,12 @@ const productsList = [
 
 const Product = (props) => {
   console.log(Product)
-  return (
+  return  productsList.length === 0 ? <ShimmerCard/> :(
     <>
       <ul className="flex flex-wrap">
-       {productsList.map((products) => {
+       {productsList.map((products, index) => {
         return (
-            <ProductCard {...products} id={products.id}/>
+          <div key={index}>  <ProductCard {...products}/></div>
         )
        })}
       </ul>

@@ -9,7 +9,7 @@ const Header = (props) => {
     
   return (
     <>
-      <ul className="flex justify-around bg-black text-white p-4">
+      <ul className="flex justify-between bg-black text-white p-4">
         <Link to="/home">
           <li>HOME</li>
         </Link>
@@ -19,7 +19,9 @@ const Header = (props) => {
         <Link to="/about">
           <li>ABOUT</li>
         </Link>
-        
+        <Link to="/contact">
+          <li>CONTACT US</li>
+        </Link>
       </ul>
 
       <div className="bg-slate-500 text-center p-4 shadow-gray-900 shadow-lg">
