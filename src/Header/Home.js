@@ -7,8 +7,10 @@ const Home = () => {
       <Link to="/movies">
        <button>Movies</button>
       </Link>
+      <div className=" flex justify-center pt-10"><h1 className="font-extrabold text-4xl shadow-lg text-sky-700 bg-slate-300">TOUR</h1></div>
+      
     </div>
-    <div className="flex items-center justify-center h-screen">
+    <div className="flex items-center justify-center  h-96">
         
       <table className="shadow-lg bg-white border-separate content-center">
         <tr>

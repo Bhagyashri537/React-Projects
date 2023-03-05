@@ -1,11 +1,11 @@
 import React, {useState,createContext} from "react";
-import ProductCard from "../Product/ProductCard";
+import ProductsList from "../Product/ProductCard";
 
-export const Cart = React.createContext({
-    cart:0,
-});
 
-const CartContext = (props) => {
+export const Cart = React.createContext()
+   
+
+const CartContext = ({children}) => {
     const [cart, setCart] = useState([]);
 
     const addToCart = (data) => {
@@ -13,8 +13,8 @@ const CartContext = (props) => {
     }
 
     return (
-        <Cart.Provider value={{cart,setCart,ProductCard,addToCart}}>
-         {props.children}
+        <Cart.Provider value={{cart,setCart,ProductsList,addToCart}}>
+         {children}
         </Cart.Provider>
     )
 }

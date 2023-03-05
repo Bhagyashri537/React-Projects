@@ -7,16 +7,18 @@ import About from "./src/Header/About";
 import Home from "./src/Header/Home"
 import Movies from "./src/Header/Movies/Movies";
 import Contact from "./src/Header/Contact";
-import ShimmerCard from "./src/Product/ShimmerCard";
+import Login from "./src/Header/Login";
+import ProductDetail from "./src/Product/ProductDetail";
+import CartContext from "./src/store/CartContext";
 //const store = import("./src/Product/Store")
 const AppLayout = () => {
    
     return (
-    <>
+    <CartContext>
      <Header/>
      
      <Outlet/>
-     </>
+     </CartContext>
     )
 }
 
@@ -51,7 +53,16 @@ const appRouter = createBrowserRouter([
             {
                 path: "/movies",
                 element:<Movies/>
+            },
+            {
+                path: "/product/:id",
+                element:<ProductDetail/>
+            },
+            {
+                path: "/login",
+                element:<Login/>
             }
+        
         ]
 
     }

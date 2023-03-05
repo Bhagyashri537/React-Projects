@@ -1,7 +1,10 @@
 import ProductCard from "./ProductCard";
-import ShimmerCard from "./ShimmerCard";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
-const productsList = [
+
+  const ProductsList = [
   {
     id: "p1",
     title: "Album 1",
@@ -32,13 +35,22 @@ const productsList = [
 ];
 
 const Product = (props) => {
-  console.log(Product)
-  return  productsList.length === 0 ? <ShimmerCard/> :(
+  
+  //  const id = 2
+  // const navigate = useNavigate();
+  // function goToProductDetails () {
+  //   navigate("/product/" , {state : {id : id}})
+    
+  // }
+
+  return (
     <>
-      <ul className="flex flex-wrap">
-       {productsList.map((products, index) => {
+      <ul className="grid grid-cols-2 place-content-center pl-56 pr-20">
+       {ProductsList.map((products) => {
         return (
-          <div key={index}>  <ProductCard {...products}/></div>
+            <Link to={"/product/" + products.id}>
+          <div > <ProductCard {...products} key={products.id}/></div>
+              </Link>
         )
        })}
       </ul>

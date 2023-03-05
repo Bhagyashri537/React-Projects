@@ -5,7 +5,7 @@ import { Cart } from "../store/CartContext"
 
 const ProductCard = ({title,price,imageUrl}) => {
     
-  const [addIte , setAddItem] = useState([])
+  const [add , setAddItem] = useState([])
 
   const addToCart = (item) =>{
     Cart.addItem()
@@ -20,7 +20,7 @@ const ProductCard = ({title,price,imageUrl}) => {
         <img src={imageUrl} alt="pic"/>
         
         <h3>Rs.{price}</h3>
-        <button className="p-1 m-1 bg-blue-400 rounded-md" onClick={() => addToCart(addIte)}>Add To Cart</button>
+        <button className="p-1 m-1 bg-blue-400 rounded-md" onClick={() => addToCart(add)}>Add To Cart</button>
         </div>
         
       </div>
