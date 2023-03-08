@@ -1,18 +1,43 @@
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { removeItem } from "../store/cartSlice";
 
-const CartItem = ({title,price,imageUrl,quantity}) => {
-    return (
-      <div>
-        <h2>{title}</h2>
-        <div>
-        <img className="w-36" src={imageUrl} alt="pic"/>
-        
-        <h3>Rs.{price}</h3>
-        <h4>{quantity}</h4>
+const CartItem = ({ title, imageUrl, price }) => {
+ 
+  const dispatch = useDispatch();
+   const deleteCartItem = (id) => {
+        dispatch(removeItem(id));
+
+    }
+  return (
+    <div className="p-5">
+      {/* <div className="border-2 border-blue-400"> */}
+        <div className="flex justify-between">
+          <div>
+            <img
+              className="h-12 border-black border-solid px-6 "
+              src={imageUrl}
+              alt="pic"
+            />
+          </div>
+          <div className="">
+            <h2 className="text-2xl font-bold px-6 ">{title}</h2>
+           
+          </div>
+          <div>
+          <h3 className="font-semibold px-6 ">Rs.{price}</h3>
+          </div>
+          <div>
+            <button className="bg-slate-400 rounded-lg px-6" onClick={() => deleteCartItem()}>remove</button>
+          </div>
+          
          
         </div>
-        <button className="p-2 m-2 bg-orange-300 text-white rounded-md">Remove</button>
-        
-      </div>
-    )
-}
-export default CartItem
+      {/* </div> */}
+    </div>
+  );
+
+  
+            }
+
+export default CartItem;
